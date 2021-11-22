@@ -1,0 +1,22 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  text-align: left;
+  font-weight: bold;
+}
+
+.input{
+    margin:.5em 0em 1em 0em;
+}
+
+.button {
+  background-color: rgb(71, 0, 138);
+  border-radius: 1em;
+  width: 7em;
+  color: white;
+  font-size: medium;
+  padding: .4em 0em .4em 0em;
+}

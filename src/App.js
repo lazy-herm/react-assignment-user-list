@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import UserForm from "./components/UserForm";
+import UserList from "./components/userList/UserList";
 
-function App() {
+const App = (props) => {
+  const [userList, changeUserList] = useState([
+    { username: "Marc", age: "33", key: 2 },
+    { username: "Laura", age: "35", key: 3 },
+  ]);
+
+  const onNewUser = (formData) => {
+    changeUserList((userList) => {
+      return [...userList, formData];
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserForm onNewUserHandler={onNewUser} />
+      <UserList userList={userList} />
     </div>
   );
-}
+};
 
 export default App;
