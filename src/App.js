@@ -15,10 +15,18 @@ const App = (props) => {
     });
   };
 
+  const removeUser = (event) => {
+    changeUserList((userList) => {
+      return userList.filter(
+        (user) => user.key.toString() !== event.target.id.toString()
+      );
+    });
+  };
+
   return (
     <div className="App">
       <UserForm onNewUserHandler={onNewUser} />
-      <UserList userList={userList} />
+      <UserList userList={userList} removeUserHandler={removeUser} />
     </div>
   );
 };
